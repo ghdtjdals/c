@@ -1,1 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h> /*rand()함수를 사용하기 위한 헤더파일*/
+#include <time.h> /*srand()함수를 사용하여 난수 초기화를 위한 헤더파일*/
+
+int main(void)
+{
+    int i, j, r; /*반복문 변수와 로또번호 변수 선언*/
+    int Lotto[6]; /*로또번호를 저장할 배열 선언*/
+    srand(time(NULL)); /*난수 초기화*/
+    
+    for(i = 0; i < 6; i++)
+    {
+         r=rand()%45+1; /*로또는 45개의 숫자 중 서로 다른 숫자 6개를 선택*/
+         for(j = 0;j < i;j++) /*서로 다른 숫자 6개를 선택하기 위한 반복문*/
+         {
+             if(r==Lotto[j]) 
+                 continue;
+         }
+         Lotto[i]=r;
+    }
+    
+    for(i = 0; i < 6; i++) /*로또번호 출력*/
+        printf(":%d  ", Lotto[i]);
+    
+    return 0;
+}
