@@ -125,7 +125,10 @@ double calc_postfix(char expr[])
 int main()
 {
     double calc;
-    char expr[MAX] = { "8 / 2 - 3" };
+    char expr[MAX];
+
+    printf("중위 표기 식 입력: ");
+    gets(expr);
 
     printf("후위 표기 계산 식: ");
     infix_to_postfix(expr);
